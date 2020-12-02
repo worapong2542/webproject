@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>Covid</title>
+    <!-- Favicon-->
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
+        type="text/css" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="/">Covid</a>
+            <button
+                class="navbar-toggler navbar-toggler-right text-uppercase font-weight-bold bg-primary text-white rounded"
+                type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive"
+                aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Main</a></li> -->
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="#signin">Sign In</a></li>
+                    <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
+                            href="/favorite">Favorite</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Masthead-->
+    <!-- <header class="masthead bg-primary text-white text-left"> -->
+    <!-- <div class="container d-flex align-items-left flex-column"> -->
+    <!-- Masthead Avatar Image-->
+    <!-- <img class="masthead-avatar mb-5" src="assets/img/avataaars.svg" alt="" /> -->
+    <!-- Masthead Heading-->
+    <!-- <h1 class="masthead-heading text-uppercase mb-0">จังหวัด</h1> -->
+    <!-- </header> -->
+    <section class="page-section bg-primary text-white mb-0">
+        <div class="container d-flex align-items-left flex-column">
+            <h1 id="city" class="masthead-heading text-uppercase mb-0" style="padding-top:40px;padding-bottom:10px">
+                จังหวัด</h1>
+            <p id="showdata"></p>
+        </div>
+        <div class="container">
+            <div class="media" style="padding-top:10px;padding-bottom:10px">
+                <img id="03" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
+                <div class="media-body pl-3">
+                    <h5 id="01">name</h5>
+                    <p id="02">detail</p>
+                    <i onclick=fav(id0) class="far fa-heart"></i>
+                </div>
+            </div>
+            <div class="media" style="padding-top:10px;padding-bottom:10px">
+                <img id="13" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
+                <div class="media-body pl-3">
+                    <h5 id="11">name</h5>
+                    <p id="12">detail</p>
+                    <i onclick=fav(id1) class="far fa-heart"></i>
+                </div>
+            </div>
+            <div class="media" style="padding-top:10px;padding-bottom:10px">
+                <img id="23" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
+                <div class="media-body pl-3">
+                    <h5 id="21">name</h5>
+                    <p id="22">detail</p>
+                    <i onclick=fav(id2) class="far fa-heart"></i>
+                </div>
+            </div>
+            <div class="media" style="padding-top:10px;padding-bottom:10px">
+                <img id="33" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
+                <div class="media-body pl-3">
+                    <h5 id="31">name</h5>
+                    <p id="32">detail</p>
+                    <i onclick=fav(id3) class="far fa-heart"></i>
+                </div>
+            </div>
+            <div class="media" style="padding-top:10px;padding-bottom:10px">
+                <img id="43" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
+                <div class="media-body pl-3">
+                    <h5 id="41">name</h5>
+                    <p id="42">detail</p>
+                    <i onclick=fav(id4) class="far fa-heart"></i>
+                </div>
+            </div>
+    </section>
+
+    <!-- SignIn Section-->
+    <section class="page-section" id="signin">
+        <div class="container">
+            <!-- Contact Section Heading-->
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Sign In</h2>
+            <!-- Contact Section Form-->
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
+                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>User Name</label>
+                                <input class="form-control" id="user" type="text" placeholder="User Name"
+                                    required="required"
+                                    data-validation-required-message="Please enter your user name." />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <div class="control-group">
+                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
+                                <label>Password</label>
+                                <input class="form-control" id="pass" type="password" placeholder="Password"
+                                    required="required"
+                                    data-validation-required-message="Please enter your password." />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                        </div>
+                        <br />
+                        <div id="success"></div>
+                        <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton"
+                                type="submit">Sign In</button></div>
+                        <a class="masthead-subheading font-weight-light mb-0" href="/register">dont have acc?</a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer-->
+
+    <!-- Copyright Section-->
+    <div class="copyright py-4 text-center text-white">
+        <div class="container"><small>Copyright © Your Website 2020</small></div>
+    </div>
+    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+    <div class="scroll-to-top d-lg-none position-fixed">
+        <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i
+                class="fa fa-chevron-up"></i></a>
+    </div>
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <!-- Popper js -->
+    <script src="js/bootstrap/popper.min.js"></script>
+    <!-- Bootstrap-4 js -->
+    <script src="js/bootstrap/bootstrap.min.js"></script>
+    <!-- pagination -->
+    <script src="js/pagination.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+    <!-- favorite -->
+    <script src="js/favorite.js"></script>
+    <!-- jQuery-2.2.4 js -->
+    <script src="js/jquery/jquery-2.2.4.min.js"></script>
+    <script>
+        $(document).ready(readcookie(), setup())
+        function setup() {
+
+            $.ajaxSetup({
+                headers: {
+                    'Authorization': 'bearer G(LsNMYQxwthtlPATlMG9zWWTmzqnzcNuK6fQeo86o0KzNSdoF2kMFReYcJ2KwTCpq8QfxXKL00BqUe7Jt4TJtW=====2',
+                    'Accept-Language': 'th'
+                }
+            });
+
+            var provinceid = 0;//รหัสจังหวัด
+            var x = 0; //จำนวนผู้ป่วย
+            var y = 0; //หายแล้ว
+            var z = 0; //กำลังรักษา
+            const queryString = window.location.search;//เอาurlมาแล้วแบ่งเป็นคำ
+            const urlParams = new URLSearchParams(queryString);
+            city = urlParams.get('city');
+            arr_city = ["Bangkok", "Krabi", "Kanchanaburi", "Kalasin", "Kamphaeng Phet", "Khon Kaen", "Chanthaburi", "Chachoengsao", "Chonburi", "Chai Nat", "Chaiyaphum", "Chumphon", "Chiang Rai", "Chiang Mai", "Trang", "Trat", "Tak", "Nakhon Nayok", "Nakhon Pathom", "Nakhon Phanom", "Nakhon Ratchasima", "Nakhon Si Thammarat", "Nakhon Sawan", "Nonthaburi", "Narathiwat", "Nan"
+                , "Bueng Kan", "Buriram", "Pathum Thani", "Prachuap Khiri Khan", "Prachinburi", "Pattani", "Phra Nakhon Si Ayutthaya", "Phang Nga", "Phatthalung", "Phichit", "Phitsanulok", "Phetchaburi", "Phetchabun", "Phrae", "Phayao", "Phuket", "Maha Sarakham", "Mukdahan", "Mae Hong Son", "Yala", "Yasothon", "Roi Et", "Ranong", "Rayong", "Ratchaburi", "Lopburi", "Lampang", "Lamphun", "Loei",
+                "Sisaket", "Sakon Nakhon", "Songkhla", "Satun", "Samut Prakan", "Samut Songkhram", "Samut Sakhon", "Sa Kaeo", "Saraburi", "Sing Buri", "Sukhothai", "Suphan Buri", "Surat Thani", "Surin", "Nong Khai", "Nong Bua Lamphu", "Ang Thong", "Udon Thani", "Uthai Thani", "Uttaradit", "Ubon Ratchathani", "Amnat Charoen"]
+            document.getElementById('city').innerHTML = city;
+            for (i = 0; i <= arr_city.length; i++) {
+                if (city == arr_city) {
+                    provinceid = i + 1;
+                } else provinceid = 1;
+            }
+            var url = 'https://covid19.th-stat.com/api/open/cases';
+            fetch(url)
+                .then((r) => r.json())
+                .then(function (data) {
+                    console.log(data)
+                    for (i = 0; i < data.Data.length; i++) {
+                        if (data.Data[i].ProvinceId == provinceid) {//https://www.govesite.com/uploads/20150616220039Pp9UPrr/20180720112427_3_hDHa8tk.pdf อันนี้ลำดีบจังหวัด
+                            x++;
+                            if (data.Data[i].StatQuarantine == 0) {
+                                y++;
+                            } else z++;
+                        }
+                    }
+                    $('#showdata').html("จำนวนผู้ป่วยทั้งหมดในจังหวัดพังงา : " + x + " คน" + "<br>" +
+                        "รักษาหายแล้วจำนวน : " + y + " คน" + "<br>" +
+                        "กำลังรักษาจำนวน : " + z + " คน");
+                });
+            api = "https://tatapi.tourismthailand.org/tatapi/v5/places/search?&categories=OTHER&provinceName=" + city;
+            if (city) {
+            } else {
+                city = "Bangkok"
+            }
+            const decodeurl = decodeURIComponent(api);
+
+            $.getJSON(decodeurl, function (json) {
+                console.log(json)
+                // address = JSON.stringify(json.result[0].latitude).slice(1, -1)+","+JSON.stringify(json.result[0].longitude).slice(1, -1)
+                // console.log(address)
+                document.getElementById("01").innerHTML = JSON.stringify(json.result[0].place_name).slice(1, -1)
+                document.getElementById("02").innerHTML = JSON.stringify(json.result[0].location.address).slice(1, -1)
+                if (json.result[0].thumbnail_url) { document.getElementById("03").src = JSON.stringify(json.result[0].thumbnail_url).slice(1, -1) }
+                //เช็คถ้าไม่มีค่าไม่ทำงาน
+                id0 = JSON.stringify(json.result[0].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[0].place_id).slice(1, -1)
+                console.log(id0)
+                console.log(JSON.stringify(json.result[0].place_id))
+                // document.getElementById("04").href = "single-listing?type=" + JSON.stringify(json.result[0].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[0].place_id).slice(1, -1)
+
+                document.getElementById("11").innerHTML = JSON.stringify(json.result[1].place_name).slice(1, -1)
+                document.getElementById("12").innerHTML = JSON.stringify(json.result[1].location.address).slice(1, -1)
+                if (json.result[1].thumbnail_url) { document.getElementById("13").src = JSON.stringify(json.result[1].thumbnail_url).slice(1, -1) }
+                id1 = JSON.stringify(json.result[1].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[1].place_id).slice(1, -1)
+                // document.getElementById("14").href = "single-listing?type=" + JSON.stringify(json.result[1].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[1].place_id).slice(1, -1)
+
+                document.getElementById("21").innerHTML = JSON.stringify(json.result[2].place_name).slice(1, -1)
+                document.getElementById("22").innerHTML = JSON.stringify(json.result[2].location.address).slice(1, -1)
+                if (json.result[2].thumbnail_url) { document.getElementById("23").src = JSON.stringify(json.result[2].thumbnail_url).slice(1, -1) }
+                id2 = JSON.stringify(json.result[2].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[2].place_id).slice(1, -1)
+                // document.getElementById("24").href = "single-listing?type=" + JSON.stringify(json.result[2].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[2].place_id).slice(1, -1)
+
+                document.getElementById("31").innerHTML = JSON.stringify(json.result[3].place_name).slice(1, -1)
+                document.getElementById("32").innerHTML = JSON.stringify(json.result[3].location.address).slice(1, -1)
+                if (json.result[3].thumbnail_url) { document.getElementById("33").src = JSON.stringify(json.result[3].thumbnail_url).slice(1, -1) }
+                id3 = JSON.stringify(json.result[3].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[3].place_id).slice(1, -1)
+                // document.getElementById("34").href = "single-listing?type=" + JSON.stringify(json.result[3].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[3].place_id).slice(1, -1)
+
+                document.getElementById("41").innerHTML = JSON.stringify(json.result[4].place_name).slice(1, -1)
+                document.getElementById("42").innerHTML = JSON.stringify(json.result[4].location.address).slice(1, -1)
+                if (json.result[4].thumbnail_url) { document.getElementById("43").src = JSON.stringify(json.result[4].thumbnail_url).slice(1, -1) }
+                id4 = JSON.stringify(json.result[4].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[4].place_id).slice(1, -1)
+                // document.getElementById("44").href = "single-listing?type=" + JSON.stringify(json.result[4].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[4].place_id).slice(1, -1)
+            });
+        }
+
+    </script>
+</body>
+
+</html>
