@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <form id="contactForm" name="sentMessage" novalidate="novalidate" onsubmit="submit()">
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
                                 <label>Name</label>
@@ -104,7 +104,7 @@
             </div>
         </div>
     </section>
-
+    <!-- Footer-->
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -117,16 +117,17 @@
 
     <script src="js/scripts.js"></script>
     <script>
-        $("submit").click(function () {
+        function submit() {
             var user = $("#user").val();
             var pass = $("#pass").val();
             var name = $("#name").val();
             var email = $("#email").val();
             var phone = $("#phone").val();
+            console.log('sbumot register');
             $.get("http://localhost:3000/register/" + user + "/" + pass + "/" + name + "/" + email + "/" + phone, function (data, status) {
                 console.log(data.result);
             });
-        });
+        };
     </script>
 </body>
 

@@ -7,10 +7,10 @@ var db = mysql.createConnection({
   password: '',
   database: 'datauser'
 });
-// db.connect(function (err) {
-//   if (err) console.log('DB Error');
-//   else console('Connect DB');
-// })
+db.connect(function (err) {
+  if (err) console.log('DB Error');
+  else console.log('Connect DB');
+})
 const bodyparser = require('body-parser');
 /* GET users listing. */
 router.get('/', function (req, res, next) {
@@ -24,9 +24,9 @@ router.get('/register/:user/:pass/:name/:email/:phone', function (req, res) {
   var name = req.params.name;
   var email = req.params.email;
   var phone = req.params.phone;
-  var sql = "insert into user(std_user,std_pass,std_name,std_email,std_phone)";
+  var sql = "insert into data(std_user,std_pass,std_name,std_email,std_phone)";
   sql += " value('" + sid + "','" + user + "','" + pass + "','" + name + "'," + email + "','" + phone + ")";
-  con.query(sql, function (err, result) {
+  db.query(sql, function (err, result) {
     if (err) throw console.log('query error');
     res.send(result);
   })
@@ -35,7 +35,7 @@ router.get('/register/:user/:pass/:name/:email/:phone', function (req, res) {
 router.get('/login/:user/:pass', function (req, res) {
   var user = req.params.user;
   var pass = req.params.pass;
-  sql = "select * from user_login where user ='" + user + "'and password = '" + pwd + "'";
+  sql = "select * from data where user ='" + user + "'and pass = '" + pwd + "'";
   con.query(sql, function (err, result) {
     if (err) throw err;
     var resJosn;
