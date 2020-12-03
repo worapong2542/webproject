@@ -10,12 +10,19 @@ var db = mysql.createConnection({
 db.connect(function (err) {
   if (err) console.log('DB Error');
   else console.log('Connect DB');
-})
+});
 const bodyparser = require('body-parser');
 /* GET users listing. */
 router.get('/', function (req, res, next) {
+  sql = "select * from data";
+  db.query(sql, function (err, result, fields) {
+    if (err) throw console.log('query error');
+    //res.send(result);
+    console.log(result)
+  })
   res.send('respond with a resource');
 });
+
 router.get('/register/:user/:pass/:name/:email/:phone', function (req, res) {
   console.log(' in database');
   var sid = req.body.sid;
@@ -25,11 +32,12 @@ router.get('/register/:user/:pass/:name/:email/:phone', function (req, res) {
   var email = req.params.email;
   var phone = req.params.phone;
   var sql = "insert into data(std_user,std_pass,std_name,std_email,std_phone)";
-  sql += " value('" + sid + "','" + user + "','" + pass + "','" + name + "'," + email + "','" + phone + ")";
-  db.query(sql, function (err, result) {
-    if (err) throw console.log('query error');
-    res.send(result);
-  })
+  sql += " value('" + user + "','" + pass + "','" + name + "'," + email + "','" + phone + "')";
+  console.log(sql);
+  // db.query(sql, function (err, result) {
+  //   if (err) throw console.log('query error');
+  //   res.send(result);
+  // })
 });
 
 router.get('/login/:user/:pass', function (req, res) {
