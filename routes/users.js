@@ -25,7 +25,6 @@ router.get('/', function (req, res, next) {
 
 router.get('/register/:user/:pass/:name/:email/:phone', function (req, res) {
   console.log(' in database');
-  var sid = req.body.sid;
   var user = req.params.user;
   var pass = req.params.pass;
   var name = req.params.name;
@@ -42,12 +41,13 @@ router.get('/register/:user/:pass/:name/:email/:phone', function (req, res) {
 router.get('/login/:user/:pass', function (req, res) {
   var user = req.params.user;
   var pass = req.params.pass;
-  sql = "select * from data where user ='" + user + "'and pass = '" + pwd + "'";
+  sql = "select * from data where user ='" + user + "'and pass = '" + pass + "'";
   con.query(sql, function (err, result) {
     if (err) throw err;
     var resJosn;
     if (result.length > 0) {
       resJosn = { "result": 1 };
+      console.log("y");
     } else {
       resJosn = { "result": 0 };
     }
