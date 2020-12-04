@@ -31,13 +31,12 @@ router.get('/register/:user/:pass/:name/:email/:phone', function (req, res) {
   var name = req.params.name;
   var email = req.params.email;
   var phone = req.params.phone;
-  var sql = "insert into data(std_user,std_pass,std_name,std_email,std_phone)";
-  sql += " value('" + user + "','" + pass + "','" + name + "'," + email + "','" + phone + "')";
+  var sql = "insert into data(user,pass,name,email,phone)" + " value('" + user + "','" + pass + "','" + name + "','" + email + "','" + phone + "')";
   console.log(sql);
-  // db.query(sql, function (err, result) {
-  //   if (err) throw console.log('query error');
-  //   res.send(result);
-  // })
+  db.query(sql, function (err, result) {
+    if (err) console.log('query error');
+    console.log(result);
+  })
 });
 
 router.get('/login/:user/:pass', function (req, res) {

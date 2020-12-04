@@ -103,28 +103,22 @@
                 </div>
             </div>
         </div>
+        <button type="submit" onclick="submit()">submit</button>
     </section>
-    <!-- Footer-->
-
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-
     <script src="assets/mail/jqBootstrapValidation.js"></script>
-    <script src="assets/mail/contact_me.js"></script>
-
     <script src="js/scripts.js"></script>
     <script>
         function submit() {
+            console.log('sbumot register');
             var user = $("#user").val();
             var pass = $("#pass").val();
             var name = $("#name").val();
             var email = $("#email").val();
             var phone = $("#phone").val();
-            console.log('sbumot register');
-            $.get("http://localhost:3000/register/" + user + "/" + pass + "/" + name + "/" + email + "/" + phone, function (data, status) {
+            $.get("http://localhost:3000/users/register/" + user + "/" + pass + "/" + name + "/" + email + "/" + phone, function (data, status) {
                 console.log(data.result);
             });
         };
