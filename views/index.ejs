@@ -253,16 +253,16 @@
                 document.getElementById("UpdateDate").innerHTML = "UpdateDate: " + JSON.stringify(result.UpdateDate).slice(1, -1);
             });
         });
-        $("contactForm").click(function () {
-            var user = $("#user").val();
-            var pass = $("#pass").val();
-            var name = $("#name").val();
-            var email = $("#email").val();
-            var phone = $("#phone").val();
-            $.get("http://localhost:3000/login/" + user + "/" + pass, function (data, status) {
-                console.log(data.result);
-            });
-        })
+        // $("contactForm").click(function () {
+        //     var user = $("#user").val();
+        //     var pass = $("#pass").val();
+        //     var name = $("#name").val();
+        //     var email = $("#email").val();
+        //     var phone = $("#phone").val();
+        //     $.get("http://localhost:3000/login/" + user + "/" + pass, function (data, status) {
+        //         console.log(data.result);
+        //     });
+        // })
     </script>
 </body>
 

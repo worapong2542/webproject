@@ -23,13 +23,27 @@ router.get('/', function (req, res, next) {
   res.send('respond with a resource');
 });
 
-router.get('/register/:user/:pass/:name/:email/:phone', function (req, res) {
+// router.get('/register/:user/:pass/:name/:email/:phone', function (req, res) {
+//   console.log(' in database');
+//   var user = req.params.user;
+//   var pass = req.params.pass;
+//   var name = req.params.name;
+//   var email = req.params.email;
+//   var phone = req.params.phone;
+//   var sql = "insert into data(user,pass,name,email,phone)" + " value('" + user + "','" + pass + "','" + name + "','" + email + "','" + phone + "')";
+//   console.log(sql);
+//   db.query(sql, function (err, result) {
+//     if (err) console.log('query error');
+//     console.log(result);
+//   })
+// });
+router.post('/register/', function (req, res) {
   console.log(' in database');
-  var user = req.params.user;
-  var pass = req.params.pass;
-  var name = req.params.name;
-  var email = req.params.email;
-  var phone = req.params.phone;
+  var user = req.body.user;
+  var pass = req.body.pass;
+  var name = req.body.name;
+  var email = req.body.email;
+  var phone = req.body.phone;
   var sql = "insert into data(user,pass,name,email,phone)" + " value('" + user + "','" + pass + "','" + name + "','" + email + "','" + phone + "')";
   console.log(sql);
   db.query(sql, function (err, result) {
@@ -38,18 +52,19 @@ router.get('/register/:user/:pass/:name/:email/:phone', function (req, res) {
   })
 });
 
-router.get('/login/:user/:pass', function (req, res) {
-  var user = req.params.user;
-  var pass = req.params.pass;
-  sql = "select * from data where user ='" + user + "'and pass = '" + pass + "'";
-  con.query(sql, function (err, result) {
-    if (err) throw err;
-    var resJosn;
-    if (result.length > 0) {
-      resJosn = { "result": 1 };
-      console.log("y");
+router.get('/login/', function (req, res) {
+  var user = req.body.user;
+  var pass = req.body.pass;
+  console.log(user + " " + pass);
+  sql = "SELECT * FROM `data` WHERE  `user` = '" + user + "'" + " AND `pass` = '" + pass + "'";
+  console.log(sql);
+  db.query(sql, function (err, result) {
+    if (result == "") {
+      console.log("not found")
+      res.render('index', { title: 'index' });
     } else {
-      resJosn = { "result": 0 };
+      console.log("Right")
+      res.render('index', { title: 'index' });
     }
   });
 });
