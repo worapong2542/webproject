@@ -17,27 +17,8 @@ $(function () {
             var email = $("input#email").val();
             var phone = $("input#phone").val();
             console.log("value for input =" + "user:" + user + " pass:" + pass + " name:" + name + " email:" + email + " phone:" + phone);
-            var firstName = name; // For Success/Failure Message
-            // Check for white space in name for Success/Fail message
-            // if (firstName.indexOf(" ") >= 0) {
-            //     firstName = name.split(" ").slice(0, -1).join(" ");
-            // }
             $this = $("#sendMessageButton");
             $this.prop("disabled", true);
-            // if (phone && email && name == "0") {
-            //     var url = "http://localhost:3000/users/login/" + user + "/" + pass;
-            //     console.log("this login");
-            //     console.log(url);
-            //     $.get(url, function (data, status) {
-            //     });
-            // } else {
-            //     var url = "http://localhost:3000/users/register/" + user + "/" + pass + "/" + name + "/" + email + "/" + phone;
-            //     console.log("this register");
-            //     console.log(url);
-            //     $.get(url, function (data, status) {
-            //     });
-            // }
-            // $("#contactForm").trigger("reset");
 
             // Disable submit button until AJAX call is complete to prevent duplicate messages
             var url = "";
@@ -85,7 +66,6 @@ $(function () {
                     $("#success > .alert-danger").append(
                         $("<strong>").text(
                             "Sorry " +
-                            firstName +
                             ", it seems that my mail server is not responding. Please try again later!"
                         )
                     );

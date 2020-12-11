@@ -42,7 +42,7 @@
             </div>
         </div>
     </nav>
-   
+
     <section class="page-section bg-primary text-white mb-0">
         <div class="container d-flex align-items-left flex-column">
             <h1 id="city" class="masthead-heading text-uppercase mb-0" style="padding-top:40px;padding-bottom:10px">
@@ -55,6 +55,7 @@
                 <div class="media-body pl-3">
                     <h5 id="01">name</h5>
                     <p id="02">detail</p>
+                    <p id="seemore">See more.</p>
                     <i onclick=fav(id0) class="far fa-heart"></i>
                 </div>
             </div>
@@ -63,6 +64,7 @@
                 <div class="media-body pl-3">
                     <h5 id="11">name</h5>
                     <p id="12">detail</p>
+                    <p id="seemore">See more.</p>
                     <i onclick=fav(id1) class="far fa-heart"></i>
                 </div>
             </div>
@@ -71,6 +73,7 @@
                 <div class="media-body pl-3">
                     <h5 id="21">name</h5>
                     <p id="22">detail</p>
+                    <p id="seemore">See more.</p>
                     <i onclick=fav(id2) class="far fa-heart"></i>
                 </div>
             </div>
@@ -79,6 +82,7 @@
                 <div class="media-body pl-3">
                     <h5 id="31">name</h5>
                     <p id="32">detail</p>
+                    <p id="seemore">See more.</p>
                     <i onclick=fav(id3) class="far fa-heart"></i>
                 </div>
             </div>
@@ -87,6 +91,7 @@
                 <div class="media-body pl-3">
                     <h5 id="41">name</h5>
                     <p id="42">detail</p>
+                    <p id="seemore">See more.</p>
                     <i onclick=fav(id4) class="far fa-heart"></i>
                 </div>
             </div>
@@ -158,7 +163,6 @@
     <script>
         $(document).ready(readcookie(), setup())
         function setup() {
-
             $.ajaxSetup({
                 headers: {
                     'Authorization': 'bearer G(LsNMYQxwthtlPATlMG9zWWTmzqnzcNuK6fQeo86o0KzNSdoF2kMFReYcJ2KwTCpq8QfxXKL00BqUe7Jt4TJtW=====2',
@@ -243,6 +247,11 @@
                 id4 = JSON.stringify(json.result[4].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[4].place_id).slice(1, -1)
                 // document.getElementById("44").href = "single-listing?type=" + JSON.stringify(json.result[4].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[4].place_id).slice(1, -1)
             });
+        }
+        document.getElementById("seemore").addEventListener("click", test);
+        function test() {
+            console.log("test");
+            //https://www.w3schools.com/cssref/sel_hover.asp
         }
 
     </script>

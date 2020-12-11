@@ -17,6 +17,6 @@ router.get('/favorite', function (req, res, next) {
 router.get('/result', function (req, res, next) {
   res.render('result', { title: 'result' });
 });
-//save
+
 module.exports = router;
 
