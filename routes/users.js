@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 const bodyparser = require('body-parser');
-
+var username = "";
 var db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -53,9 +53,50 @@ router.post('/login', function (req, res) {
     } else {
       console.log("user and password match")
       console.log(result)
+      username = user;
       res.send("1")
     }
   });
+});
+router.get('/logincheck/:user/:pass', function (req, res) {
+  console.log("login");
+  var user = req.params.user;
+  var pass = req.params.pass;
+  console.log(user + " " + pass);
+  sql = "SELECT * FROM `data` WHERE  `user` = '" + user + "'" + " AND `pass` = '" + pass + "'";
+  console.log(sql);
+  db.query(sql, function (err, result) {
+    if (result == "") {
+      console.log("not found user or password" + result)
+    } else {
+      console.log("user and password match")
+      res.send("1");
+    }
+  });
+});
+
+router.get('/location/:id', function (req, res) {
+  var id = req.params.id;
+  console.log(id)
+  var sql = "SELECT * FROM `location` WHERE  `id` = '" + id + "'";
+  db.query(sql, function (err, result) {
+    console.log(result);
+    console.log()
+    res.send(result)
+    //res.send({ "tem": tem_conv, "unit": unit_conv });
+  })
+});
+
+router.get('/username', function (req, res, next) {
+  res.send(username);
+});
+
+router.get('/logout/:del_user', function (req, res, next) {
+  var del_user = req.params.del_user;
+  username = del_user;
+  if (username == "0") {
+    username = ""
+  } else username = ""
 });
 
 module.exports = router;

@@ -35,7 +35,7 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Main</a></li> -->
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="#signin">Sign In</a></li>
+                            href="#signin">Sign Out</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                             href="/favorite">Favorite</a></li>
                 </ul>
@@ -165,43 +165,28 @@
     <section class="page-section" id="signin">
         <div class="container">
             <!-- Contact Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Sign In</h2>
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">ACCOUNT</h2>
             <!-- Contact Section Form-->
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <form id="signout" name="sentMessage" novalidate="novalidate">
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>User Name</label>
-                                <input class="form-control" id="user" type="text" placeholder="User Name"
-                                    required="required"
-                                    data-validation-required-message="Please enter your user name." />
-                                <p class="help-block text-danger"></p>
+                                <br>
+                                <h3 id="user">User Name : </h3>
                             </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Password</label>
-                                <input class="form-control" id="pass" type="password" placeholder="Password"
-                                    required="required"
-                                    data-validation-required-message="Please enter your password." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                            <div><input type="hidden" id="phone" value="0"></div>
-                            <div><input type="hidden" id="name" value="0"></div>
-                            <div><input type="hidden" id="email" value="0"></div>
                         </div>
                         <br />
-                        <div id="success"></div>
-                        <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton"
-                                type="submit">Sign In</button></div>
-                        <a class="masthead-subheading font-weight-light mb-0" href="/register">dont have acc?</a>
+
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    <button class="btn btn-primary btn-xl" id="btnout" type="submit" onclick="signout()"
+        style="margin-left: 44%;margin-bottom: 1ch;margin-top: -5ch;">SIGN OUT</button>
+
     <!-- Footer-->
 
     <!-- Copyright Section-->
@@ -238,22 +223,27 @@
                 document.getElementById("UpdateDate").innerHTML = "UpdateDate: " + JSON.stringify(result.UpdateDate).slice(1, -1);
             });
         });
-        document.getElementById("sendMessageButton").addEventListener("click", btn);
-        function btn() {
-            var user = $("input#user").val();
-            var pass = $("input#pass").val();
-            url = 'http://localhost:3000/users/logincheck/' + user + "/" + pass;
+        $(document).ready(function () {
+            url = 'http://localhost:3000/users/username/'
             $.get(url, function (result) {
-                if (result == "1") {
-                    setTimeout('Redirect()', 3000);
-                }
+                document.getElementById("user").innerHTML = "UserName : " + (result);
             });
+        });
+        function signout() {
+            username = "0";
+            url = 'http://localhost:3000/users/logout/' + username;
+            $.get(url, function (result) {
+            });
+            window.location.replace("/");
         }
-        function Redirect() {
-            window.location.replace("/index_login");
-        }
+        //document.getElementById("btnout").addEventListener("click", render);
+        // function render(){
+        //     $.get('http://localhost:3000/render', function (result){
 
+        //     })
+        // }
     </script>
+
 </body>
 
 </html>

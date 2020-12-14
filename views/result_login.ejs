@@ -51,57 +51,47 @@
         </div>
         <div class="container">
             <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="1_img" class="img-fluid img-responsive" width="300" height="200"
-                    src="/assets/img/no-image.jpg">
+                <img id="03" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
                 <div class="media-body pl-3">
-                    <h5 id="1_name">name</h5>
-                    <p id="1_detail">detail</p>
-                    <p id="seemore1">See more.</p>
-                    <input id="1_id" type="hidden" value=""></input>
+                    <h5 id="01">name</h5>
+                    <p id="02">detail</p>
+                    <p id="seemore">See more.</p>
                     <i onclick=fav(id0) class="far fa-heart"></i>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="2_img" class="img-fluid img-responsive" width="300" height="200"
-                    src="/assets/img/no-image.jpg">
+                <img id="13" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
                 <div class="media-body pl-3">
-                    <h5 id="2_name">name</h5>
-                    <p id="2_detail">detail</p>
-                    <p id="seemore2">See more.</p>
-                    <input id="2_id" type="hidden" value=""></input>
+                    <h5 id="11">name</h5>
+                    <p id="12">detail</p>
+                    <p id="seemore">See more.</p>
                     <i onclick=fav(id1) class="far fa-heart"></i>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="3_img" class="img-fluid img-responsive" width="300" height="200"
-                    src="/assets/img/no-image.jpg">
+                <img id="23" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
                 <div class="media-body pl-3">
-                    <h5 id="3_name">name</h5>
-                    <p id="3_detail">detail</p>
-                    <p id="seemore3">See more.</p>
-                    <input id="3_id" type="hidden" value=""></input>
+                    <h5 id="21">name</h5>
+                    <p id="22">detail</p>
+                    <p id="seemore">See more.</p>
                     <i onclick=fav(id2) class="far fa-heart"></i>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="4_img" class="img-fluid img-responsive" width="300" height="200"
-                    src="/assets/img/no-image.jpg">
+                <img id="33" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
                 <div class="media-body pl-3">
-                    <h5 id="4_name">name</h5>
-                    <p id="4_detail">detail</p>
-                    <p id="seemore4">See more.</p>
-                    <input id="4_id" type="hidden" value=""></input>
+                    <h5 id="31">name</h5>
+                    <p id="32">detail</p>
+                    <p id="seemore">See more.</p>
                     <i onclick=fav(id3) class="far fa-heart"></i>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="5_img" class="img-fluid img-responsive" width="300" height="200"
-                    src="/assets/img/no-image.jpg">
+                <img id="43" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
                 <div class="media-body pl-3">
-                    <h5 id="5_name">name</h5>
-                    <p id="5_detail">detail</p>
-                    <p id="seemore5">See more.</p>
-                    <input id="5_id" type="hidden" value=""></input>
+                    <h5 id="41">name</h5>
+                    <p id="42">detail</p>
+                    <p id="seemore">See more.</p>
                     <i onclick=fav(id4) class="far fa-heart"></i>
                 </div>
             </div>
@@ -224,97 +214,48 @@
                 console.log(json)
                 // address = JSON.stringify(json.result[0].latitude).slice(1, -1)+","+JSON.stringify(json.result[0].longitude).slice(1, -1)
                 // console.log(address)
-                document.getElementById("1_name").innerHTML = JSON.stringify(json.result[0].place_name).slice(1, -1)
-                document.getElementById("1_detail").innerHTML = JSON.stringify(json.result[0].location.address).slice(1, -1)
-                document.getElementById("1_id").value = JSON.stringify(json.result[0].place_id).slice(1, -1);
-                if (json.result[0].thumbnail_url) { document.getElementById("1_img").src = JSON.stringify(json.result[0].thumbnail_url).slice(1, -1) }
+                document.getElementById("01").innerHTML = JSON.stringify(json.result[0].place_name).slice(1, -1)
+                document.getElementById("02").innerHTML = JSON.stringify(json.result[0].location.address).slice(1, -1)
+                if (json.result[0].thumbnail_url) { document.getElementById("03").src = JSON.stringify(json.result[0].thumbnail_url).slice(1, -1) }
                 //เช็คถ้าไม่มีค่าไม่ทำงาน
                 id0 = JSON.stringify(json.result[0].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[0].place_id).slice(1, -1)
                 console.log(id0)
                 console.log(JSON.stringify(json.result[0].place_id))
                 // document.getElementById("04").href = "single-listing?type=" + JSON.stringify(json.result[0].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[0].place_id).slice(1, -1)
 
-                document.getElementById("2_name").innerHTML = JSON.stringify(json.result[1].place_name).slice(1, -1)
-                document.getElementById("2_detail").innerHTML = JSON.stringify(json.result[1].location.address).slice(1, -1)
-                document.getElementById("2_id").value = JSON.stringify(json.result[1].place_id).slice(1, -1);
-                if (json.result[1].thumbnail_url) { document.getElementById("2_img").src = JSON.stringify(json.result[1].thumbnail_url).slice(1, -1) }
+                document.getElementById("11").innerHTML = JSON.stringify(json.result[1].place_name).slice(1, -1)
+                document.getElementById("12").innerHTML = JSON.stringify(json.result[1].location.address).slice(1, -1)
+                if (json.result[1].thumbnail_url) { document.getElementById("13").src = JSON.stringify(json.result[1].thumbnail_url).slice(1, -1) }
                 id1 = JSON.stringify(json.result[1].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[1].place_id).slice(1, -1)
                 // document.getElementById("14").href = "single-listing?type=" + JSON.stringify(json.result[1].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[1].place_id).slice(1, -1)
 
-                document.getElementById("3_name").innerHTML = JSON.stringify(json.result[2].place_name).slice(1, -1)
-                document.getElementById("3_detail").innerHTML = JSON.stringify(json.result[2].location.address).slice(1, -1)
-                document.getElementById("3_id").value = JSON.stringify(json.result[2].place_id).slice(1, -1);
-                if (json.result[2].thumbnail_url) { document.getElementById("3_img").src = JSON.stringify(json.result[2].thumbnail_url).slice(1, -1) }
+                document.getElementById("21").innerHTML = JSON.stringify(json.result[2].place_name).slice(1, -1)
+                document.getElementById("22").innerHTML = JSON.stringify(json.result[2].location.address).slice(1, -1)
+                if (json.result[2].thumbnail_url) { document.getElementById("23").src = JSON.stringify(json.result[2].thumbnail_url).slice(1, -1) }
                 id2 = JSON.stringify(json.result[2].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[2].place_id).slice(1, -1)
                 // document.getElementById("24").href = "single-listing?type=" + JSON.stringify(json.result[2].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[2].place_id).slice(1, -1)
 
-                document.getElementById("4_name").innerHTML = JSON.stringify(json.result[3].place_name).slice(1, -1)
-                document.getElementById("4_detail").innerHTML = JSON.stringify(json.result[3].location.address).slice(1, -1)
-                document.getElementById("4_id").value = JSON.stringify(json.result[3].place_id).slice(1, -1);
-                if (json.result[3].thumbnail_url) { document.getElementById("4_img").src = JSON.stringify(json.result[3].thumbnail_url).slice(1, -1) }
+                document.getElementById("31").innerHTML = JSON.stringify(json.result[3].place_name).slice(1, -1)
+                document.getElementById("32").innerHTML = JSON.stringify(json.result[3].location.address).slice(1, -1)
+                if (json.result[3].thumbnail_url) { document.getElementById("33").src = JSON.stringify(json.result[3].thumbnail_url).slice(1, -1) }
                 id3 = JSON.stringify(json.result[3].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[3].place_id).slice(1, -1)
                 // document.getElementById("34").href = "single-listing?type=" + JSON.stringify(json.result[3].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[3].place_id).slice(1, -1)
 
-                document.getElementById("5_name").innerHTML = JSON.stringify(json.result[4].place_name).slice(1, -1)
-                document.getElementById("5_detail").innerHTML = JSON.stringify(json.result[4].location.address).slice(1, -1)
-                document.getElementById("5_id").value = JSON.stringify(json.result[4].place_id).slice(1, -1);
-                if (json.result[4].thumbnail_url) { document.getElementById("5_img").src = JSON.stringify(json.result[4].thumbnail_url).slice(1, -1) }
+                document.getElementById("41").innerHTML = JSON.stringify(json.result[4].place_name).slice(1, -1)
+                document.getElementById("42").innerHTML = JSON.stringify(json.result[4].location.address).slice(1, -1)
+                if (json.result[4].thumbnail_url) { document.getElementById("43").src = JSON.stringify(json.result[4].thumbnail_url).slice(1, -1) }
                 id4 = JSON.stringify(json.result[4].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[4].place_id).slice(1, -1)
                 // document.getElementById("44").href = "single-listing?type=" + JSON.stringify(json.result[4].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[4].place_id).slice(1, -1)
             });
         }
-        document.getElementById("seemore1").addEventListener("click", seemore1);
-        document.getElementById("seemore2").addEventListener("click", seemore2);
-        document.getElementById("seemore3").addEventListener("click", seemore3);
-        document.getElementById("seemore4").addEventListener("click", seemore4);
-        document.getElementById("seemore5").addEventListener("click", seemore5);
-        //https://www.w3schools.com/cssref/sel_hover.asp
-        function seemore1() {
-            var id1 = $("input#1_id").val();
-            console.log(id1)
-            url = 'http://localhost:3000/users/location/' + id1;
-            console.log(url)
-            $.get(url, function (data, status) {
-                console.log(data)
-                console.log(data[0].detail)
-                document.getElementById("seemore1").innerHTML = JSON.stringify(data[0].detail);
-            });
+        document.getElementById("seemore").addEventListener("click", test);
+        function test() {
+            console.log("test");
+            //https://www.w3schools.com/cssref/sel_hover.asp
         }
-
-        function seemore2() {
-            var id2 = $("#2_id").val();
-            url = 'http://localhost:3000/users/location/' + id2;
-            $.get(url, function (data, status) {
-                document.getElementById("seemore2").innerHTML = JSON.stringify(data[0].detail);
-            });
-        }
-
-        function seemore3() {
-            var id3 = $("#3_id").val();
-            url = 'http://localhost:3000/users/location/' + id3;
-            $.get(url, function (data, status) {
-                document.getElementById("seemore3").innerHTML = JSON.stringify(data[0].detail);
-            });
-        }
-
-        function seemore4() {
-            var id4 = $("#4_id").val();
-            url = 'http://localhost:3000/users/location/' + id4;
-            $.get(url, function (data, status) {
-                document.getElementById("seemore4").innerHTML = JSON.stringify(data[0].detail);
-            });
-        }
-
-        function seemore5() {
-            var id5 = $("#5_id").val();
-            url = 'http://localhost:3000/users/location/' + id5;
-            $.get(url, function (data, status) {
-                document.getElementById("seemore5").innerHTML = JSON.stringify(data[0].detail);
-            });
-        }
-        
 
     </script>
 </body>
 
 </html>
+//save

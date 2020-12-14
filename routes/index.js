@@ -18,5 +18,14 @@ router.get('/result', function (req, res, next) {
   res.render('result', { title: 'result' });
 });
 
+router.get('/index_login', function (req, res, next) {
+  res.render('index_login', { title: 'index_login' });
+});
+
+router.get('/result_login', function (req, res, next) {
+  res.render('result_login', { title: 'result_login' });
+});
+
+
 module.exports = router;
 
