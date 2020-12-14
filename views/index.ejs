@@ -37,7 +37,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                             href="#signin">Sign In</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="/favorite">Favorite</a></li>
+                            onclick="nofav()">Favorite</a></li>
                 </ul>
             </div>
         </div>
@@ -251,6 +251,9 @@
         }
         function Redirect() {
             window.location.replace("/index_login");
+        }
+        function nofav(){
+            alert("Plase login Before use this function")
         }
 
     </script>
