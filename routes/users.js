@@ -97,9 +97,10 @@ router.get('/logout/:del_user', function (req, res, next) {
   } else username = ""
 });
 
-router.get('/fav/:city_id', function (req, res) {
+router.get('/fav/:city_id/:category', function (req, res) {
   var city_id = req.params.city_id;
-  var sql = "insert into fav(user,id)" + " value('" + username + "','" + city_id + "')";
+  var category = req.params.category;
+  var sql = "insert into fav(user,id,category)" + " value('" + username + "','" + city_id + "','" + category + "')";
   console.log(sql)
   db.query(sql, function (err, result) {
     if (err) {
@@ -107,6 +108,36 @@ router.get('/fav/:city_id', function (req, res) {
     } else {
       res.send("saving")
     }
-  });
+  })
 });
+
+router.get('/getfav', function (req, res, next) {
+  console.log("getfav")
+  var sql = "SELECT * FROM `fav` WHERE  `user` = '" + username + "'";
+  console.log(sql)
+  db.query(sql, function (err, result) {
+    if (err) {
+      console.log("qurry error")
+    }
+    else {
+      res.send(result);
+    }
+  })
+});
+
+router.get('/delfav/:del_id', function (req, res, next) {
+  var del_id = req.params.del_id;
+  var sql = "DELETE FROM `fav` WHERE `fav`.`user` = '" + username + "' AND `fav`.`id` = '" + del_id + "'";
+  console.log(sql)
+  db.query(sql, function (err, result) {
+    if (err) {
+      console.log("qurry error")
+    }
+    else {
+      res.send(result);
+    }
+  })
+});
+
+
 module.exports = router;

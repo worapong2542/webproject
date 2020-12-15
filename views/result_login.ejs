@@ -37,7 +37,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                             href="#signout">Sign Out</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="/favorite">Favorite</a></li>
+                            href="/fav">Favorite</a></li>
                 </ul>
             </div>
         </div>
@@ -157,6 +157,7 @@
     <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <script>
+        var category = [];
         $(document).ready(readcookie(), setup())
         function setup() {
             $.ajaxSetup({
@@ -165,7 +166,6 @@
                     'Accept-Language': 'th'
                 }
             });
-
             var provinceid = 0;//รหัสจังหวัด
             var x = 0; //จำนวนผู้ป่วย
             var y = 0; //หายแล้วF
@@ -212,7 +212,7 @@
                 var two = ["2_name", "2_detail", "2_id", "2_img"];
                 var three = ["3_name", "3_detail", "3_id", "3_img"];
                 var four = ["4_name", "4_detail", "4_id", "4_img"];
-                var fiv = ["5_name", "5_detail", "5_id", "5_img"];
+                var five = ["5_name", "5_detail", "5_id", "5_img"];
                 var num = ""
                 for (i = 0; i <= 5; i++) {
                     if (i == 0) {
@@ -224,7 +224,7 @@
                     } else if (i == 3) {
                         num = four
                     } else if (i == 4) {
-                        num = fiv
+                        num = five
                     } else {
                         break;
                     }
@@ -232,7 +232,9 @@
                     document.getElementById(num[1]).innerHTML = JSON.stringify(json.result[i].location.address).slice(1, -1)
                     document.getElementById(num[2]).value = JSON.stringify(json.result[i].place_id).slice(1, -1);
                     if (json.result[i].thumbnail_url) { document.getElementById(num[3]).src = JSON.stringify(json.result[i].thumbnail_url).slice(1, -1) }
-
+                    console.log(json.result[i].category_code);
+                    category.push(json.result[i].category_code)
+                    console.log(category)
                 }
             });
         }
@@ -273,21 +275,27 @@
         }
 
         function fav(id) {
+            var category_fav = ""
             console.log("this id: " + id)
             alert("saving")
             var city_id = 0
             if (id == 1) {
                 city_id = $("#1_id").val()
+                category_fav = category[0];
             } else if (id == 2) {
                 city_id = $("#2_id").val()
+                category_fav = category[1];
             } else if (id == 3) {
                 city_id = $("#3_id").val()
+                category_fav = category[2];
             } else if (id == 4) {
                 city_id = $("#4_id").val()
+                category_fav = category[3];
             } else if (id == 5) {
                 city_id = $("#5_id").val()
+                category_fav = category[4];
             }
-            var url = 'http://localhost:3000/users/fav/' + city_id;
+            var url = 'http://localhost:3000/users/fav/' + city_id + "/" + category_fav;
             console.log(url)
             $.get(url, function (result) {
                 console.log(result)

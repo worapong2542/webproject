@@ -37,7 +37,7 @@
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                             href="#signout">Sign Out</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="/favorite">Favorite</a></li>
+                            href="/fav">Favorite</a></li>
                 </ul>
             </div>
         </div>
@@ -58,6 +58,7 @@
                     <p id="1_detail">detail</p>
                     <p id="seemore1" onclick="seemore(1)">See more.</p>
                     <input id="1_id" type="hidden" value=""></input>
+                    <i onclick=del(1) class="fa fa-trash"></i>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
@@ -68,6 +69,7 @@
                     <p id="2_detail">detail</p>
                     <p id="seemore2" onclick="seemore(2)">See more.</p>
                     <input id="2_id" type="hidden" value=""></input>
+                    <i onclick=del(2) class="fa fa-trash"></i>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
@@ -78,6 +80,7 @@
                     <p id="3_detail">detail</p>
                     <p id="seemore3" onclick="seemore(3)">See more.</p>
                     <input id="3_id" type="hidden" value=""></input>
+                    <i onclick=del(3) class="fa fa-trash"></i>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
@@ -88,6 +91,7 @@
                     <p id="4_detail">detail</p>
                     <p id="seemore4" onclick="seemore(4)">See more.</p>
                     <input id="4_id" type="hidden" value=""></input>
+                    <i onclick=del(4) class="fa fa-trash"></i>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
@@ -98,6 +102,7 @@
                     <p id="5_detail">detail</p>
                     <p id="seemore5" onclick="seemore(5)">See more.</p>
                     <input id="5_id" type="hidden" value=""></input>
+                    <i onclick=del(5) class="fa fa-trash"></i>
                 </div>
             </div>
     </section>
@@ -152,56 +157,46 @@
     <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <script>
-        $(document).ready(readcookie(), setup())
-        function setup() {
+        var total = 0
+        var one = ["1_name", "1_detail", "1_id", "1_img"];
+        var two = ["2_name", "2_detail", "2_id", "2_img"];
+        var three = ["3_name", "3_detail", "3_id", "3_img"];
+        var four = ["4_name", "4_detail", "4_id", "4_img"];
+        var five = ["5_name", "5_detail", "5_id", "5_img"];
+        function setup(data) {
             $.ajaxSetup({
                 headers: {
                     'Authorization': 'bearer G(LsNMYQxwthtlPATlMG9zWWTmzqnzcNuK6fQeo86o0KzNSdoF2kMFReYcJ2KwTCpq8QfxXKL00BqUe7Jt4TJtW=====2',
                     'Accept-Language': 'th'
                 }
             });
-
-            const queryString = window.location.search;//เอาurlมาแล้วแบ่งเป็นคำ
-            const urlParams = new URLSearchParams(queryString);
-            city = urlParams.get('city');
-
-            api = "https://tatapi.tourismthailand.org/tatapi/v5/places/search?&categories=OTHER&provinceName=" + city;
-            if (city) {
-            } else {
-                city = "Bangkok"
-            }
-            const decodeurl = decodeURIComponent(api);
-
-            $.getJSON(decodeurl, function (json) {
-                console.log(json)
-                var one = ["1_name", "1_detail", "1_id", "1_img"];
-                var two = ["2_name", "2_detail", "2_id", "2_img"];
-                var three = ["3_name", "3_detail", "3_id", "3_img"];
-                var four = ["4_name", "4_detail", "4_id", "4_img"];
-                var fiv = ["5_name", "5_detail", "5_id", "5_img"];
-                var num = ""
-                for (i = 0; i <= 5; i++) {
-                    if (i == 0) {
+            for (i = 0; i < data.length; i++) {
+                api = "https://tatapi.tourismthailand.org/tatapi/v5/" + data[i].category + "/" + data[i].id;
+                $.getJSON(api, function (json) {
+                    console.log(json);
+                    console.log(json.result.place_name)
+                    console.log(total)
+                    if (total == 0) {
                         num = one
-                    } else if (i == 1) {
+                    } else if (total == 1) {
                         num = two
-                    } else if (i == 2) {
+                    } else if (total == 2) {
                         num = three
-                    } else if (i == 3) {
+                    } else if (total == 3) {
                         num = four
-                    } else if (i == 4) {
-                        num = fiv
-                    } else {
-                        break;
+                    } else if (total == 4) {
+                        num = five
                     }
-                    document.getElementById(num[0]).innerHTML = JSON.stringify(json.result[i].place_name).slice(1, -1)
-                    document.getElementById(num[1]).innerHTML = JSON.stringify(json.result[i].location.address).slice(1, -1)
-                    document.getElementById(num[2]).value = JSON.stringify(json.result[i].place_id).slice(1, -1);
-                    if (json.result[i].thumbnail_url) { document.getElementById(num[3]).src = JSON.stringify(json.result[i].thumbnail_url).slice(1, -1) }
-
-                }
-            });
+                    console.log(num)
+                    document.getElementById(num[0]).innerHTML = JSON.stringify(json.result.place_name).slice(1, -1)
+                    document.getElementById(num[1]).innerHTML = JSON.stringify(json.result.location.address).slice(1, -1)
+                    document.getElementById(num[2]).value = JSON.stringify(json.result.place_id).slice(1, -1);
+                    if (json.result.thumbnail_url) { document.getElementById(num[3]).src = JSON.stringify(json.result.thumbnail_url).slice(1, -1) }
+                    total++
+                })
+            }
         }
+
         function seemore(id) {
             var id_city = 0
             if (id == 1) {
@@ -230,6 +225,7 @@
                 document.getElementById("user").innerHTML = "UserName : " + (result);
             });
         });
+
         function signout() {
             username = "0";
             url = 'http://localhost:3000/users/logout/' + username;
@@ -237,7 +233,35 @@
             });
             window.location.replace("/");
         }
-       
+
+        $(document).ready(function () {
+            var url = 'http://localhost:3000/users/getfav';
+            $.get(url, function (result) {
+                console.log(result)
+                setup(result);
+            })
+        })
+        function del(id) {
+            alert("Deleting")
+            var del_id = 0
+            if (id == 1) {
+                del_id = $("#1_id").val()
+            } else if (id == 2) {
+                del_id = $("#2_id").val()
+            } else if (id == 3) {
+                del_id = $("#3_id").val()
+            } else if (id == 4) {
+                del_id = $("#4_id").val()
+            } else if (id == 5) {
+                del_id = $("#5_id").val()
+            }
+            var url = 'http://localhost:3000/users/delfav/' + del_id;
+            console.log(url)
+            $.get(url, function (result) {
+                console.log(result)
+                window.location.reload("/fav")
+            })
+        }
     </script>
 </body>
 
