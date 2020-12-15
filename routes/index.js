@@ -26,6 +26,10 @@ router.get('/result_login', function (req, res, next) {
   res.render('result_login', { title: 'result_login' });
 });
 
+router.get('/fav', function (req, res, next) {
+  res.render('fav', { title: 'fav' });
+});
+
 
 module.exports = router;
 

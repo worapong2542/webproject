@@ -35,7 +35,7 @@
                 <ul class="navbar-nav ml-auto">
                     <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Main</a></li> -->
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="#signin">Sign In</a></li>
+                            href="#signout">Sign Out</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                             href="/favorite">Favorite</a></li>
                 </ul>
@@ -46,95 +46,86 @@
     <section class="page-section bg-primary text-white mb-0">
         <div class="container d-flex align-items-left flex-column">
             <h1 id="city" class="masthead-heading text-uppercase mb-0" style="padding-top:40px;padding-bottom:10px">
-                จังหวัด</h1>
-            <p id="showdata"></p>
+                Favorite</h1>
+            <br>
         </div>
         <div class="container">
             <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="03" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
+                <img id="1_img" class="img-fluid img-responsive" width="300" height="200"
+                    src="/assets/img/no-image.jpg">
                 <div class="media-body pl-3">
-                    <h5 id="01">name</h5>
-                    <p id="02">detail</p>
-                    <p id="seemore">See more.</p>
-                    <i onclick=fav(id0) class="far fa-heart"></i>
+                    <h5 id="1_name">name</h5>
+                    <p id="1_detail">detail</p>
+                    <p id="seemore1" onclick="seemore(1)">See more.</p>
+                    <input id="1_id" type="hidden" value=""></input>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="13" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
+                <img id="2_img" class="img-fluid img-responsive" width="300" height="200"
+                    src="/assets/img/no-image.jpg">
                 <div class="media-body pl-3">
-                    <h5 id="11">name</h5>
-                    <p id="12">detail</p>
-                    <p id="seemore">See more.</p>
-                    <i onclick=fav(id1) class="far fa-heart"></i>
+                    <h5 id="2_name">name</h5>
+                    <p id="2_detail">detail</p>
+                    <p id="seemore2" onclick="seemore(2)">See more.</p>
+                    <input id="2_id" type="hidden" value=""></input>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="23" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
+                <img id="3_img" class="img-fluid img-responsive" width="300" height="200"
+                    src="/assets/img/no-image.jpg">
                 <div class="media-body pl-3">
-                    <h5 id="21">name</h5>
-                    <p id="22">detail</p>
-                    <p id="seemore">See more.</p>
-                    <i onclick=fav(id2) class="far fa-heart"></i>
+                    <h5 id="3_name">name</h5>
+                    <p id="3_detail">detail</p>
+                    <p id="seemore3" onclick="seemore(3)">See more.</p>
+                    <input id="3_id" type="hidden" value=""></input>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="33" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
+                <img id="4_img" class="img-fluid img-responsive" width="300" height="200"
+                    src="/assets/img/no-image.jpg">
                 <div class="media-body pl-3">
-                    <h5 id="31">name</h5>
-                    <p id="32">detail</p>
-                    <p id="seemore">See more.</p>
-                    <i onclick=fav(id3) class="far fa-heart"></i>
+                    <h5 id="4_name">name</h5>
+                    <p id="4_detail">detail</p>
+                    <p id="seemore4" onclick="seemore(4)">See more.</p>
+                    <input id="4_id" type="hidden" value=""></input>
                 </div>
             </div>
             <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="43" class="img-fluid img-responsive" width="300" height="200" src="/assets/img/no-image.jpg">
+                <img id="5_img" class="img-fluid img-responsive" width="300" height="200"
+                    src="/assets/img/no-image.jpg">
                 <div class="media-body pl-3">
-                    <h5 id="41">name</h5>
-                    <p id="42">detail</p>
-                    <p id="seemore">See more.</p>
-                    <i onclick=fav(id4) class="far fa-heart"></i>
+                    <h5 id="5_name">name</h5>
+                    <p id="5_detail">detail</p>
+                    <p id="seemore5" onclick="seemore(5)">See more.</p>
+                    <input id="5_id" type="hidden" value=""></input>
                 </div>
             </div>
     </section>
 
-    <!-- SignIn Section-->
-    <section class="page-section" id="signin">
+    <section class="page-section" id="signout">
         <div class="container">
             <!-- Contact Section Heading-->
-            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Sign In</h2>
+            <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">ACCOUNT</h2>
             <!-- Contact Section Form-->
             <div class="row">
                 <div class="col-lg-8 mx-auto">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
-                    <form id="contactForm" name="sentMessage" novalidate="novalidate">
+                    <form id="signout" name="sentMessage" novalidate="novalidate">
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>User Name</label>
-                                <input class="form-control" id="user" type="text" placeholder="User Name"
-                                    required="required"
-                                    data-validation-required-message="Please enter your user name." />
-                                <p class="help-block text-danger"></p>
-                            </div>
-                        </div>
-                        <div class="control-group">
-                            <div class="form-group floating-label-form-group controls mb-0 pb-2">
-                                <label>Password</label>
-                                <input class="form-control" id="pass" type="password" placeholder="Password"
-                                    required="required"
-                                    data-validation-required-message="Please enter your password." />
-                                <p class="help-block text-danger"></p>
+                                <br>
+                                <h3 id="user">User Name : </h3>
                             </div>
                         </div>
                         <br />
-                        <div id="success"></div>
-                        <div class="form-group"><button class="btn btn-primary btn-xl" id="sendMessageButton"
-                                type="submit">Sign In</button></div>
-                        <a class="masthead-subheading font-weight-light mb-0" href="/register">dont have acc?</a>
+
                     </form>
                 </div>
             </div>
         </div>
     </section>
+    <button class="btn btn-primary btn-xl" id="btnout" type="submit" onclick="signout()"
+        style="margin-left: 44%;margin-bottom: 1ch;margin-top: -5ch;">SIGN OUT</button>
     <!-- Footer-->
 
     <!-- Copyright Section-->
@@ -170,39 +161,10 @@
                 }
             });
 
-            var provinceid = 0;//รหัสจังหวัด
-            var x = 0; //จำนวนผู้ป่วย
-            var y = 0; //หายแล้วF
-            var z = 0; //กำลังรักษา
             const queryString = window.location.search;//เอาurlมาแล้วแบ่งเป็นคำ
             const urlParams = new URLSearchParams(queryString);
             city = urlParams.get('city');
-            arr_city = ["Bangkok", "Krabi", "Kanchanaburi", "Kalasin", "Kamphaeng Phet", "Khon Kaen", "Chanthaburi", "Chachoengsao", "Chonburi", "Chai Nat", "Chaiyaphum", "Chumphon", "Chiang Rai", "Chiang Mai", "Trang", "Trat", "Tak", "Nakhon Nayok", "Nakhon Pathom", "Nakhon Phanom", "Nakhon Ratchasima", "Nakhon Si Thammarat", "Nakhon Sawan", "Nonthaburi", "Narathiwat", "Nan"
-                , "Bueng Kan", "Buriram", "Pathum Thani", "Prachuap Khiri Khan", "Prachinburi", "Pattani", "Phra Nakhon Si Ayutthaya", "Phang Nga", "Phatthalung", "Phichit", "Phitsanulok", "Phetchaburi", "Phetchabun", "Phrae", "Phayao", "Phuket", "Maha Sarakham", "Mukdahan", "Mae Hong Son", "Yala", "Yasothon", "Roi Et", "Ranong", "Rayong", "Ratchaburi", "Lopburi", "Lampang", "Lamphun", "Loei",
-                "Sisaket", "Sakon Nakhon", "Songkhla", "Satun", "Samut Prakan", "Samut Songkhram", "Samut Sakhon", "Sa Kaeo", "Saraburi", "Sing Buri", "Sukhothai", "Suphan Buri", "Surat Thani", "Surin", "Nong Khai", "Nong Bua Lamphu", "Ang Thong", "Udon Thani", "Uthai Thani", "Uttaradit", "Ubon Ratchathani", "Amnat Charoen"]
-            document.getElementById('city').innerHTML = city;
-            for (i = 0; i <= arr_city.length; i++) {
-                if (city == arr_city) {
-                    provinceid = i + 1;
-                } else provinceid = 1;
-            }
-            var url = 'https://covid19.th-stat.com/api/open/cases';
-            fetch(url)
-                .then((r) => r.json())
-                .then(function (data) {
-                    console.log(data)
-                    for (i = 0; i < data.Data.length; i++) {
-                        if (data.Data[i].ProvinceId == provinceid) {//https://www.govesite.com/uploads/20150616220039Pp9UPrr/20180720112427_3_hDHa8tk.pdf อันนี้ลำดีบจังหวัด
-                            x++;
-                            if (data.Data[i].StatQuarantine == 0) {
-                                y++;
-                            } else z++;
-                        }
-                    }
-                    $('#showdata').html("จำนวนผู้ป่วยทั้งหมดในจังหวัด : " + x + " คน" + "<br>" +
-                        "รักษาหายแล้วจำนวน : " + y + " คน" + "<br>" +
-                        "กำลังรักษาจำนวน : " + z + " คน");
-                });
+
             api = "https://tatapi.tourismthailand.org/tatapi/v5/places/search?&categories=OTHER&provinceName=" + city;
             if (city) {
             } else {
@@ -212,50 +174,71 @@
 
             $.getJSON(decodeurl, function (json) {
                 console.log(json)
-                // address = JSON.stringify(json.result[0].latitude).slice(1, -1)+","+JSON.stringify(json.result[0].longitude).slice(1, -1)
-                // console.log(address)
-                document.getElementById("01").innerHTML = JSON.stringify(json.result[0].place_name).slice(1, -1)
-                document.getElementById("02").innerHTML = JSON.stringify(json.result[0].location.address).slice(1, -1)
-                if (json.result[0].thumbnail_url) { document.getElementById("03").src = JSON.stringify(json.result[0].thumbnail_url).slice(1, -1) }
-                //เช็คถ้าไม่มีค่าไม่ทำงาน
-                id0 = JSON.stringify(json.result[0].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[0].place_id).slice(1, -1)
-                console.log(id0)
-                console.log(JSON.stringify(json.result[0].place_id))
-                // document.getElementById("04").href = "single-listing?type=" + JSON.stringify(json.result[0].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[0].place_id).slice(1, -1)
+                var one = ["1_name", "1_detail", "1_id", "1_img"];
+                var two = ["2_name", "2_detail", "2_id", "2_img"];
+                var three = ["3_name", "3_detail", "3_id", "3_img"];
+                var four = ["4_name", "4_detail", "4_id", "4_img"];
+                var fiv = ["5_name", "5_detail", "5_id", "5_img"];
+                var num = ""
+                for (i = 0; i <= 5; i++) {
+                    if (i == 0) {
+                        num = one
+                    } else if (i == 1) {
+                        num = two
+                    } else if (i == 2) {
+                        num = three
+                    } else if (i == 3) {
+                        num = four
+                    } else if (i == 4) {
+                        num = fiv
+                    } else {
+                        break;
+                    }
+                    document.getElementById(num[0]).innerHTML = JSON.stringify(json.result[i].place_name).slice(1, -1)
+                    document.getElementById(num[1]).innerHTML = JSON.stringify(json.result[i].location.address).slice(1, -1)
+                    document.getElementById(num[2]).value = JSON.stringify(json.result[i].place_id).slice(1, -1);
+                    if (json.result[i].thumbnail_url) { document.getElementById(num[3]).src = JSON.stringify(json.result[i].thumbnail_url).slice(1, -1) }
 
-                document.getElementById("11").innerHTML = JSON.stringify(json.result[1].place_name).slice(1, -1)
-                document.getElementById("12").innerHTML = JSON.stringify(json.result[1].location.address).slice(1, -1)
-                if (json.result[1].thumbnail_url) { document.getElementById("13").src = JSON.stringify(json.result[1].thumbnail_url).slice(1, -1) }
-                id1 = JSON.stringify(json.result[1].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[1].place_id).slice(1, -1)
-                // document.getElementById("14").href = "single-listing?type=" + JSON.stringify(json.result[1].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[1].place_id).slice(1, -1)
-
-                document.getElementById("21").innerHTML = JSON.stringify(json.result[2].place_name).slice(1, -1)
-                document.getElementById("22").innerHTML = JSON.stringify(json.result[2].location.address).slice(1, -1)
-                if (json.result[2].thumbnail_url) { document.getElementById("23").src = JSON.stringify(json.result[2].thumbnail_url).slice(1, -1) }
-                id2 = JSON.stringify(json.result[2].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[2].place_id).slice(1, -1)
-                // document.getElementById("24").href = "single-listing?type=" + JSON.stringify(json.result[2].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[2].place_id).slice(1, -1)
-
-                document.getElementById("31").innerHTML = JSON.stringify(json.result[3].place_name).slice(1, -1)
-                document.getElementById("32").innerHTML = JSON.stringify(json.result[3].location.address).slice(1, -1)
-                if (json.result[3].thumbnail_url) { document.getElementById("33").src = JSON.stringify(json.result[3].thumbnail_url).slice(1, -1) }
-                id3 = JSON.stringify(json.result[3].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[3].place_id).slice(1, -1)
-                // document.getElementById("34").href = "single-listing?type=" + JSON.stringify(json.result[3].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[3].place_id).slice(1, -1)
-
-                document.getElementById("41").innerHTML = JSON.stringify(json.result[4].place_name).slice(1, -1)
-                document.getElementById("42").innerHTML = JSON.stringify(json.result[4].location.address).slice(1, -1)
-                if (json.result[4].thumbnail_url) { document.getElementById("43").src = JSON.stringify(json.result[4].thumbnail_url).slice(1, -1) }
-                id4 = JSON.stringify(json.result[4].category_code).slice(1, -1) + "/" + JSON.stringify(json.result[4].place_id).slice(1, -1)
-                // document.getElementById("44").href = "single-listing?type=" + JSON.stringify(json.result[4].category_code).slice(1, -1) + "&id=" + JSON.stringify(json.result[4].place_id).slice(1, -1)
+                }
             });
         }
-        document.getElementById("seemore").addEventListener("click", test);
-        function test() {
-            console.log("test");
-            //https://www.w3schools.com/cssref/sel_hover.asp
+        function seemore(id) {
+            var id_city = 0
+            if (id == 1) {
+                id_city = $("#1_id").val()
+            } else if (id == 2) {
+                id_city = $("#2_id").val()
+            } else if (id == 3) {
+                id_city = $("#3_id").val()
+            } else if (id == 4) {
+                id_city = $("#4_id").val()
+            } else if (id == 5) {
+                id_city = $("#5_id").val()
+            }
+            url = 'http://localhost:3000/users/location/' + id_city;
+            console.log(url)
+            $.get(url, function (data, status) {
+                console.log(data)
+                console.log(data[0].detail)
+                document.getElementById("seemore" + id).innerHTML = JSON.stringify(data[0].detail);
+            });
         }
 
+        $(document).ready(function () {
+            url = 'http://localhost:3000/users/username/'
+            $.get(url, function (result) {
+                document.getElementById("user").innerHTML = "UserName : " + (result);
+            });
+        });
+        function signout() {
+            username = "0";
+            url = 'http://localhost:3000/users/logout/' + username;
+            $.get(url, function (result) {
+            });
+            window.location.replace("/");
+        }
+       
     </script>
 </body>
 
 </html>
-//save

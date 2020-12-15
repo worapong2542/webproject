@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 const bodyparser = require('body-parser');
-var username = "";
+var username = "1";
 var db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
@@ -81,7 +81,6 @@ router.get('/location/:id', function (req, res) {
   var sql = "SELECT * FROM `location` WHERE  `id` = '" + id + "'";
   db.query(sql, function (err, result) {
     console.log(result);
-    console.log()
     res.send(result)
     //res.send({ "tem": tem_conv, "unit": unit_conv });
   })
@@ -93,10 +92,21 @@ router.get('/username', function (req, res, next) {
 
 router.get('/logout/:del_user', function (req, res, next) {
   var del_user = req.params.del_user;
-  username = del_user;
-  if (username == "0") {
+  if (del_user == "0") {
     username = ""
   } else username = ""
 });
 
+router.get('/fav/:city_id', function (req, res) {
+  var city_id = req.params.city_id;
+  var sql = "insert into fav(user,id)" + " value('" + username + "','" + city_id + "')";
+  console.log(sql)
+  db.query(sql, function (err, result) {
+    if (err) {
+      console.log("have fav")
+    } else {
+      res.send("saving")
+    }
+  });
+});
 module.exports = router;
