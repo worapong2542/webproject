@@ -135,7 +135,7 @@
     <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <script>
-        $(document).ready(readcookie(), setup())
+        $(document).ready(setup())
         function setup() {
             $.ajaxSetup({
                 headers: {
@@ -209,10 +209,10 @@
                     document.getElementById(num[1]).innerHTML = JSON.stringify(json.result[i].location.address).slice(1, -1)
                     document.getElementById(num[2]).value = JSON.stringify(json.result[i].place_id).slice(1, -1);
                     if (json.result[i].thumbnail_url) { document.getElementById(num[3]).src = JSON.stringify(json.result[i].thumbnail_url).slice(1, -1) }
-
                 }
             });
         }
+
         function seemore(id) {
             console.log("see more" + id)
             var id_city = 0

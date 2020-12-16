@@ -7,20 +7,15 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Covid</title>
-    <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
         type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
-    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="/index_login">Covid</a>
@@ -33,7 +28,6 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Main</a></li> -->
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                             onclick="signout()">Sign Out</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
@@ -50,6 +44,7 @@
             <p id="showdata"></p>
         </div>
         <div class="container">
+
             <div class="media" style="padding-top:10px;padding-bottom:10px">
                 <img id="1_img" class="img-fluid img-responsive" width="300" height="200"
                     src="/assets/img/no-image.jpg">
@@ -61,6 +56,7 @@
                     <i onclick=fav(1) class="far fa-heart"></i>
                 </div>
             </div>
+
             <div class="media" style="padding-top:10px;padding-bottom:10px">
                 <img id="2_img" class="img-fluid img-responsive" width="300" height="200"
                     src="/assets/img/no-image.jpg">
@@ -72,6 +68,7 @@
                     <i onclick=fav(2) class="far fa-heart"></i>
                 </div>
             </div>
+
             <div class="media" style="padding-top:10px;padding-bottom:10px">
                 <img id="3_img" class="img-fluid img-responsive" width="300" height="200"
                     src="/assets/img/no-image.jpg">
@@ -83,6 +80,7 @@
                     <i onclick=fav(3) class="far fa-heart"></i>
                 </div>
             </div>
+
             <div class="media" style="padding-top:10px;padding-bottom:10px">
                 <img id="4_img" class="img-fluid img-responsive" width="300" height="200"
                     src="/assets/img/no-image.jpg">
@@ -94,6 +92,7 @@
                     <i onclick=fav(4) class="far fa-heart"></i>
                 </div>
             </div>
+
             <div class="media" style="padding-top:10px;padding-bottom:10px">
                 <img id="5_img" class="img-fluid img-responsive" width="300" height="200"
                     src="/assets/img/no-image.jpg">
@@ -105,16 +104,14 @@
                     <i onclick=fav(5) class="far fa-heart"></i>
                 </div>
             </div>
+
     </section>
 
     <section class="page-section" id="signoutdiv">
         <div class="container">
-            <!-- Contact Section Heading-->
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">ACCOUNT</h2>
-            <!-- Contact Section Form-->
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                     <form id="signout" name="sentMessage" novalidate="novalidate">
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -123,42 +120,35 @@
                             </div>
                         </div>
                         <br />
-
                     </form>
                 </div>
             </div>
         </div>
     </section>
+
     <button class="btn btn-primary btn-xl" id="btnout" type="submit" onclick="signout()"
         style="margin-left: 44%;margin-bottom: 1ch;margin-top: -5ch;">SIGN OUT</button>
-    <!-- Footer-->
 
-    <!-- Copyright Section-->
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright © Your Website 2020</small></div>
     </div>
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
+
     <div class="scroll-to-top d-lg-none position-fixed">
         <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i
                 class="fa fa-chevron-up"></i></a>
     </div>
-    <!-- jQuery-2.2.4 js -->
+
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
     <script src="js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap-4 js -->
     <script src="js/bootstrap/bootstrap.min.js"></script>
-    <!-- pagination -->
     <script src="js/pagination.js"></script>
-    <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-    <!-- favorite -->
     <script src="js/favorite.js"></script>
-    <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
+
     <script>
         var category = [];
-        $(document).ready(readcookie(), setup())
+        $(document).ready(setup())
         function setup() {
             $.ajaxSetup({
                 headers: {
@@ -238,6 +228,7 @@
                 }
             });
         }
+
         function seemore(id) {
             var id_city = 0
             if (id == 1) {
@@ -266,6 +257,7 @@
                 document.getElementById("user").innerHTML = "UserName : " + (result);
             });
         });
+
         function signout() {
             username = "0";
             url = 'http://localhost:3000/users/logout/' + username;

@@ -2,12 +2,13 @@ var express = require('express');
 var router = express.Router();
 var mysql = require('mysql');
 const bodyparser = require('body-parser');
-var username = "1";
+var username = "";
+
 var db = mysql.createConnection({
   host: 'localhost',
   user: 'root',
   password: '',
-  database: 'datauser'
+  database: 'data_covid'
 });
 
 db.connect(function (err) {
@@ -59,10 +60,9 @@ router.post('/login', function (req, res) {
   });
 });
 router.get('/logincheck/:user/:pass', function (req, res) {
-  console.log("login");
+  console.log("logincheck");
   var user = req.params.user;
   var pass = req.params.pass;
-  console.log(user + " " + pass);
   sql = "SELECT * FROM `data` WHERE  `user` = '" + user + "'" + " AND `pass` = '" + pass + "'";
   console.log(sql);
   db.query(sql, function (err, result) {
@@ -76,13 +76,13 @@ router.get('/logincheck/:user/:pass', function (req, res) {
 });
 
 router.get('/location/:id', function (req, res) {
+  console.log("location")
   var id = req.params.id;
   console.log(id)
   var sql = "SELECT * FROM `location` WHERE  `id` = '" + id + "'";
   db.query(sql, function (err, result) {
     console.log(result);
     res.send(result)
-    //res.send({ "tem": tem_conv, "unit": unit_conv });
   })
 });
 
@@ -98,6 +98,7 @@ router.get('/logout/:del_user', function (req, res, next) {
 });
 
 router.get('/fav/:city_id/:category', function (req, res) {
+  console.log("fav")
   var city_id = req.params.city_id;
   var category = req.params.category;
   var sql = "insert into fav(user,id,category)" + " value('" + username + "','" + city_id + "','" + category + "')";
@@ -126,6 +127,7 @@ router.get('/getfav', function (req, res, next) {
 });
 
 router.get('/delfav/:del_id', function (req, res, next) {
+  console.log("del_fav")
   var del_id = req.params.del_id;
   var sql = "DELETE FROM `fav` WHERE `fav`.`user` = '" + username + "' AND `fav`.`id` = '" + del_id + "'";
   console.log(sql)
