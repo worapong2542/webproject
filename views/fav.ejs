@@ -7,20 +7,15 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>Covid</title>
-    <!-- Favicon-->
     <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
     <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet"
         type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
 </head>
 
 <body id="page-top">
-    <!-- Navigation-->
     <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
         <div class="container">
             <a class="navbar-brand js-scroll-trigger" href="/index_login">Covid</a>
@@ -33,9 +28,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
-                    <!-- <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Main</a></li> -->
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
-                            href="#signout">Sign Out</a></li>
+                        onclick="signout()">Sign Out</a></li>
                     <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger"
                             href="/fav">Favorite</a></li>
                 </ul>
@@ -50,71 +44,84 @@
             <br>
         </div>
         <div class="container">
-            <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="1_img" class="img-fluid img-responsive" width="300" height="200"
-                    src="/assets/img/no-image.jpg">
-                <div class="media-body pl-3">
-                    <h5 id="1_name">name</h5>
-                    <p id="1_detail">detail</p>
-                    <p id="seemore1" onclick="seemore(1)">See more.</p>
-                    <input id="1_id" type="hidden" value=""></input>
-                    <i onclick=del(1) class="fa fa-trash"></i>
+
+            <div id="1">
+                <div class="media" style="padding-top:10px;padding-bottom:10px">
+                    <img id="1_img" class="img-fluid img-responsive" width="300" height="200"
+                        src="/assets/img/no-image.jpg">
+                    <div class="media-body pl-3">
+                        <h5 id="1_name">name</h5>
+                        <p id="1_detail">detail</p>
+                        <p id="seemore1" onclick="seemore(1)">See more.</p>
+                        <input id="1_id" type="hidden" value=""></input>
+                        <i onclick=del(1) class="fa fa-trash"></i>
+                    </div>
                 </div>
             </div>
-            <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="2_img" class="img-fluid img-responsive" width="300" height="200"
-                    src="/assets/img/no-image.jpg">
-                <div class="media-body pl-3">
-                    <h5 id="2_name">name</h5>
-                    <p id="2_detail">detail</p>
-                    <p id="seemore2" onclick="seemore(2)">See more.</p>
-                    <input id="2_id" type="hidden" value=""></input>
-                    <i onclick=del(2) class="fa fa-trash"></i>
+
+            <div id="2">
+                <div class="media" style="padding-top:10px;padding-bottom:10px">
+                    <img id="2_img" class="img-fluid img-responsive" width="300" height="200"
+                        src="/assets/img/no-image.jpg">
+                    <div class="media-body pl-3">
+                        <h5 id="2_name">name</h5>
+                        <p id="2_detail">detail</p>
+                        <p id="seemore2" onclick="seemore(2)">See more.</p>
+                        <input id="2_id" type="hidden" value=""></input>
+                        <i onclick=del(2) class="fa fa-trash"></i>
+                    </div>
                 </div>
             </div>
-            <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="3_img" class="img-fluid img-responsive" width="300" height="200"
-                    src="/assets/img/no-image.jpg">
-                <div class="media-body pl-3">
-                    <h5 id="3_name">name</h5>
-                    <p id="3_detail">detail</p>
-                    <p id="seemore3" onclick="seemore(3)">See more.</p>
-                    <input id="3_id" type="hidden" value=""></input>
-                    <i onclick=del(3) class="fa fa-trash"></i>
+
+            <div id="3">
+                <div class="media" style="padding-top:10px;padding-bottom:10px">
+                    <img id="3_img" class="img-fluid img-responsive" width="300" height="200"
+                        src="/assets/img/no-image.jpg">
+                    <div class="media-body pl-3">
+                        <h5 id="3_name">name</h5>
+                        <p id="3_detail">detail</p>
+                        <p id="seemore3" onclick="seemore(3)">See more.</p>
+                        <input id="3_id" type="hidden" value=""></input>
+                        <i onclick=del(3) class="fa fa-trash"></i>
+                    </div>
                 </div>
             </div>
-            <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="4_img" class="img-fluid img-responsive" width="300" height="200"
-                    src="/assets/img/no-image.jpg">
-                <div class="media-body pl-3">
-                    <h5 id="4_name">name</h5>
-                    <p id="4_detail">detail</p>
-                    <p id="seemore4" onclick="seemore(4)">See more.</p>
-                    <input id="4_id" type="hidden" value=""></input>
-                    <i onclick=del(4) class="fa fa-trash"></i>
+
+            <div id="4">
+                <div class="media" style="padding-top:10px;padding-bottom:10px">
+                    <img id="4_img" class="img-fluid img-responsive" width="300" height="200"
+                        src="/assets/img/no-image.jpg">
+                    <div class="media-body pl-3">
+                        <h5 id="4_name">name</h5>
+                        <p id="4_detail">detail</p>
+                        <p id="seemore4" onclick="seemore(4)">See more.</p>
+                        <input id="4_id" type="hidden" value=""></input>
+                        <i onclick=del(4) class="fa fa-trash"></i>
+                    </div>
                 </div>
             </div>
-            <div class="media" style="padding-top:10px;padding-bottom:10px">
-                <img id="5_img" class="img-fluid img-responsive" width="300" height="200"
-                    src="/assets/img/no-image.jpg">
-                <div class="media-body pl-3">
-                    <h5 id="5_name">name</h5>
-                    <p id="5_detail">detail</p>
-                    <p id="seemore5" onclick="seemore(5)">See more.</p>
-                    <input id="5_id" type="hidden" value=""></input>
-                    <i onclick=del(5) class="fa fa-trash"></i>
+
+            <div id="5">
+                <div class="media" style="padding-top:10px;padding-bottom:10px">
+                    <img id="5_img" class="img-fluid img-responsive" width="300" height="200"
+                        src="/assets/img/no-image.jpg">
+                    <div class="media-body pl-3">
+                        <h5 id="5_name">name</h5>
+                        <p id="5_detail">detail</p>
+                        <p id="seemore5" onclick="seemore(5)">See more.</p>
+                        <input id="5_id" type="hidden" value=""></input>
+                        <i onclick=del(5) class="fa fa-trash"></i>
+                    </div>
                 </div>
             </div>
+
     </section>
 
     <section class="page-section" id="signout">
         <div class="container">
-            <!-- Contact Section Heading-->
             <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">ACCOUNT</h2>
-            <!-- Contact Section Form-->
             <div class="row">
                 <div class="col-lg-8 mx-auto">
-                    <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19.-->
                     <form id="signout" name="sentMessage" novalidate="novalidate">
                         <div class="control-group">
                             <div class="form-group floating-label-form-group controls mb-0 pb-2">
@@ -131,32 +138,26 @@
     </section>
     <button class="btn btn-primary btn-xl" id="btnout" type="submit" onclick="signout()"
         style="margin-left: 44%;margin-bottom: 1ch;margin-top: -5ch;">SIGN OUT</button>
-    <!-- Footer-->
-
-    <!-- Copyright Section-->
     <div class="copyright py-4 text-center text-white">
         <div class="container"><small>Copyright © Your Website 2020</small></div>
     </div>
-    <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes)-->
     <div class="scroll-to-top d-lg-none position-fixed">
         <a class="js-scroll-trigger d-block text-center text-white rounded" href="#page-top"><i
                 class="fa fa-chevron-up"></i></a>
     </div>
-    <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
-    <!-- Popper js -->
     <script src="js/bootstrap/popper.min.js"></script>
-    <!-- Bootstrap-4 js -->
     <script src="js/bootstrap/bootstrap.min.js"></script>
-    <!-- pagination -->
     <script src="js/pagination.js"></script>
-    <!-- Core theme JS-->
     <script src="js/scripts.js"></script>
-    <!-- favorite -->
     <script src="js/favorite.js"></script>
-    <!-- jQuery-2.2.4 js -->
     <script src="js/jquery/jquery-2.2.4.min.js"></script>
     <script>
+        var x1 = document.getElementById("1");
+        var x2 = document.getElementById("2");
+        var x3 = document.getElementById("3");
+        var x4 = document.getElementById("4");
+        var x5 = document.getElementById("5");
         var total = 0
         var one = ["1_name", "1_detail", "1_id", "1_img"];
         var two = ["2_name", "2_detail", "2_id", "2_img"];
@@ -178,14 +179,19 @@
                     console.log(total)
                     if (total == 0) {
                         num = one
+                        x1.style.display = "block"
                     } else if (total == 1) {
                         num = two
+                        x2.style.display = "block"
                     } else if (total == 2) {
                         num = three
+                        x3.style.display = "block"
                     } else if (total == 3) {
                         num = four
+                        x4.style.display = "block"
                     } else if (total == 4) {
                         num = five
+                        x5.style.display = "block"
                     }
                     console.log(num)
                     document.getElementById(num[0]).innerHTML = JSON.stringify(json.result.place_name).slice(1, -1)
@@ -241,6 +247,7 @@
                 setup(result);
             })
         })
+
         function del(id) {
             alert("Deleting")
             var del_id = 0
@@ -262,6 +269,24 @@
                 window.location.reload("/fav")
             })
         }
+
+        $(document).ready(function () {
+            var x = document.getElementById("1");
+            if (x.style.display === "none") {
+                x.style.display = "block";
+            } else {
+                x.style.display = "none";
+            }
+        }
+        )
+        $(document).ready(function () {
+            x1.style.display = "none"
+            x2.style.display = "none"
+            x3.style.display = "none"
+            x4.style.display = "none"
+            x5.style.display = "none"
+        })
+        // https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_toggle_hide_show
     </script>
 </body>
 
